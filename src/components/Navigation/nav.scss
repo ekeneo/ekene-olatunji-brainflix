@@ -1,0 +1,112 @@
+// // linking partials
+// @use "../../styles/partials/default" as *;
+// @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+// @use "../../styles/partials/_typography.scss" as *;
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    gap:1rem;
+    margin: 1.5rem 1rem; 
+  
+  &__logo {
+    width: 150px; 
+    height: auto; 
+  }
+  // nest this container style under @include for mobile here
+  &__search-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    // margin: 0rem 8rem; 
+  }
+  &__search{
+    background-image: url('../../assets/Icons/search.svg');
+    background-color: #FAFAFA;
+    background-repeat: no-repeat;
+    background-position: 10px 10px; 
+    font-size: 15px;
+    height: 5px; 
+    min-width: 240px; 
+    max-width: 100%; 
+    border: 2px solid #E5E5E5; 
+    border-radius: 4px; 
+    padding: 18px; 
+    margin-right: 12px; 
+    flex-grow: 1; 
+    transition: border-color 0.3s ease;
+    &::placeholder{
+      padding-left: 20px;
+      color: black;
+    }
+    &:focus {
+      border-color: #0072CE; 
+      outline: none; 
+    }
+    &.error {
+      .nav__search {
+        border-color: #D22D2D; 
+      }
+    }
+
+    // @include tablet {
+    //   .nav__search {
+    //     height: 40px; /* Adjust height as per requirements */
+    //     padding: 16px; /* Adjust padding as per requirements */
+    //   }
+    // }
+  
+    // @include desktop {
+    //   .nav__search {
+    //     height: 40px; /* Adjust height as per requirements */
+    //     padding: 16px; /* Adjust padding as per requirements */
+    //   }
+  }
+  &__user-icon {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    // margin-right: 10px;
+    // margin-left: 0.4rem;
+    // margin-top: 0rem;
+    // position: absolute;
+}
+// ===== CTA upload
+  &__upload {
+    background-image: url('../../assets/Icons/upload.svg');
+    background-repeat: no-repeat;
+    background-color: #0072CE;
+    background-position: 10px 10px; 
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    height: 40px; 
+    padding: 0 32px; 
+    width: 100%; 
+
+    // Icon styles
+    svg {
+        height: 20px; // Adjust icon height as needed
+        fill: currentColor; // Icon color same as text color
+    }
+
+    // Hover styles
+    &:hover {
+        background-color: #0065AD; 
+        color: #ffffff; // Adjust hover text color as needed
+    }
+  }
+}
+
+  

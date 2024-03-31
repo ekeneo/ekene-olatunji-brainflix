@@ -1,0 +1,25 @@
+@use "./default" as *;
+@use "./variables" as *;
+@use "./typography" as *;
+
+//   mixin for media queries screen size
+@mixin mobile {
+  // min-width: 320px
+  @media screen and (min-width: $mobile-breakpoint) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  // min-width: 768px
+  @media screen and (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+  
+@mixin desktop {
+  // min-width: 1280px
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
