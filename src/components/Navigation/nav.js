@@ -21,13 +21,14 @@ const Navigation = () => {
         onChange={(e) => setSearchValue(e.target.value)}>
         </input>
         {/* search end */}
+        <button className='nav__upload2'>UPLOAD</button>
         <img
           src={userIcon}
           alt="User Icon"
           className="nav__user-icon"
         />
       </div>
-      <button className='nav__upload'>Upload</button>
+      <button className='nav__upload1'>UPLOAD</button>
     </nav>
   );
 };

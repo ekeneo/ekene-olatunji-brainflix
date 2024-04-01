@@ -1,8 +1,8 @@
-// // linking partials
-// @use "../../styles/partials/default" as *;
-// @use "../../styles/partials/variables" as *;
+// linking partials
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
-// @use "../../styles/partials/_typography.scss" as *;
+@use "../../styles/partials/typography" as *;
 
 .nav {
     display: flex;
@@ -11,18 +11,33 @@
     align-items: center; 
     gap:1rem;
     margin: 1.5rem 1rem; 
+
+    @include  tablet {
+      flex-direction: row;
+      margin: 1.5rem 3rem; 
+    }
+    @include  desktop {
+      flex-direction: row;
+      margin: 1.5rem 8rem; 
+    }
   
   &__logo {
-    width: 150px; 
+    width: 180px; 
     height: auto; 
+    @include tablet{
+      width: 160px;
+    }
   }
-  // nest this container style under @include for mobile here
-  &__search-container{
+  
+  &__search-container {
     display: flex;
     flex-direction: row;
     width: 100%;
-    // margin: 0rem 8rem; 
+    @include tablet{
+      justify-content: end;
+    }
   }
+    
   &__search{
     background-image: url('../../assets/Icons/search.svg');
     background-color: #FAFAFA;
@@ -52,18 +67,15 @@
       }
     }
 
-    // @include tablet {
-    //   .nav__search {
-    //     height: 40px; /* Adjust height as per requirements */
-    //     padding: 16px; /* Adjust padding as per requirements */
-    //   }
-    // }
-  
-    // @include desktop {
-    //   .nav__search {
-    //     height: 40px; /* Adjust height as per requirements */
-    //     padding: 16px; /* Adjust padding as per requirements */
-    //   }
+    @include tablet {
+      width: 30%;
+      margin-left: 8rem;
+      margin-right: 1.5rem;
+      height: 3.125rem;
+      min-width: 250px; 
+      max-width: 40%;
+      
+    }
   }
   &__user-icon {
     object-fit: cover;
@@ -74,9 +86,13 @@
     // margin-left: 0.4rem;
     // margin-top: 0rem;
     // position: absolute;
-}
-// ===== CTA upload
-  &__upload {
+    @include tablet{
+      width: 52px;
+      height: 52px;
+    }
+  }
+  // ===== CTA upload ====
+  &__upload1 {
     background-image: url('../../assets/Icons/upload.svg');
     background-repeat: no-repeat;
     background-color: #0072CE;
@@ -87,24 +103,47 @@
     cursor: pointer;
     display: inline-block;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: normal;
     text-align: center;
     text-decoration: none;
     transition: background-color 0.3s ease;
     height: 40px; 
     padding: 0 32px; 
     width: 100%; 
-
-    // Icon styles
-    svg {
-        height: 20px; // Adjust icon height as needed
-        fill: currentColor; // Icon color same as text color
-    }
-
-    // Hover styles
     &:hover {
         background-color: #0065AD; 
-        color: #ffffff; // Adjust hover text color as needed
+        color: #ffffff; 
+    }
+    @include tablet{
+      display: none;
+    }
+  }
+  &__upload2 {
+    display: none;
+    @include tablet{
+      background-image: url('../../assets/Icons/upload.svg');
+      background-repeat: no-repeat;
+      background-color: #0072CE;
+      background-position: 10px 12px; 
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 16px;
+      font-weight: normal;
+      text-align: center;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      height: 3.125rem; 
+      padding: 0 32px; 
+      // width: 35%; 
+      width: 150px;
+      margin-right: 1rem;
+      &:hover {
+          background-color: #0065AD; 
+          color: #ffffff; 
+      }
     }
   }
 }
