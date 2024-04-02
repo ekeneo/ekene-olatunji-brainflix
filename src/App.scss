@@ -3,3 +3,15 @@
 @use "./styles/partials/variables" as *;
 @use "./styles/partials/mixins" as *;
 @use "./styles/partials/typography" as *;
+
+.Video-list__Container{
+    @include desktop{
+
+    }
+}
+.Video-list__heading{
+    margin-left: 2rem;
+    font-family: "avenir";
+    color: $brainflix-silver;
+    font-weight: 600;
+}

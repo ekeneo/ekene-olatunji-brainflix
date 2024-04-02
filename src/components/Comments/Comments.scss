@@ -1,0 +1,195 @@
+// linking partials
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+
+.comments__heading{
+    margin-left: 2rem;
+    font-family: "avenir";
+    color: $brainflix-silver;
+    font-weight: 600;
+}
+
+// === comment block ===
+.comments-container {
+    max-width: 600px;
+    margin-left: 1rem;
+    margin: 0 auto;
+    border-bottom: 2px solid $brainflix-mercury;
+    @include tablet{
+        max-width: 600px;
+        margin-left: 4rem;
+        margin: 0 auto;
+    }
+    @include desktop{
+        max-width: 800px;
+        margin-left: 1rem;
+        margin: 0 auto;
+    }
+}
+.comments-title{
+    color: $brainflix-black;
+    font-weight: 600;
+    font-size: 1.875rem;
+    margin-left: 1rem;
+    margin-bottom: 0rem;
+    padding: 0.625rem;
+    width: 100%;
+    @include tablet{
+        margin-left: -2rem;
+        position: relative;
+    }
+    @include desktop{
+        display: flex;
+        justify-content: flex-start;
+    }
+}
+.user-icon {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    margin-left: 2rem;
+    margin-top: 2rem;
+    position: absolute;
+    object-fit: cover;
+}
+.comments-form {
+    margin-bottom: 20px;
+    margin-left: 6rem;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+.comments-form input[type="text"]::placeholder,
+.comments-form textarea::placeholder {
+  color: black;
+}
+.comments-submit{
+    display: flex;
+    @include tablet{
+        justify-content: end;
+        margin-right: 30px;
+    }
+    @include desktop {
+        justify-content: end;
+        margin-right: 30px;
+    }
+}
+.input-container {
+    margin-bottom: 10px; 
+}
+.input-container label {
+    display: block;
+    font-weight: 600;
+    color: $brainflix-silver;
+  }
+  
+[type="submit"] {
+    // font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    width: 94%;
+    background: $brainflix-black;
+    border-radius:5px;
+    border:0;
+    cursor:pointer;
+    color:white;
+    font-size:20px;
+    padding-top:10px;
+    padding-bottom:10px;
+    transition: all 0.3s;
+    margin-top:-4px;
+    font-weight:500;
+    @include tablet{
+        width: 30%;
+    }
+    @include desktop{
+        width: 30%;
+    }
+  }
+  [type="submit"]:hover { background: black; }
+
+
+
+.input-container input[type="text"],
+.input-container textarea {
+  width: calc(100% - 34px);
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid $brainflix-mercury;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  font-family: "avenir";
+  font-size: 18px;
+  background-color: $brainflix-mercury;
+}
+
+.input-container textarea{
+    height: 150px;
+}
+
+// comments list
+.comments{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+   margin-bottom: 2rem;
+}
+
+.comments-list{
+    flex-direction: row;
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 2px solid $brainflix-mercury;
+    padding: 0.625rem;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 80%;
+    @include tablet{
+        padding: 0rem 0rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    @include desktop{
+        padding: 0rem 0rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+}
+.comments-list__icon{
+    flex-shrink: 0;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-left: 0rem;
+    margin-top: 1rem;
+    width: 50px;
+    height: 50px;
+    background-color: $brainflix-mercury; 
+    @include desktop{
+        margin-left: 0rem;
+    }
+}
+.comments-list__group{
+    display: flex;
+    flex-direction: column;
+    // justify-content: flex-start;
+    // width: 100%;
+    flex-grow: 1;
+}
+.comments-list__group2{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.comments-list__date{
+   font-size: 16px;
+   color: $brainflix-silver;
+   margin-top: 20px;
+}
+.comments-list__name{
+    font-size: 18px;
+    font-weight: 600;
+}
+.comments-list__comment{
+    margin-top: 0px;
+}
