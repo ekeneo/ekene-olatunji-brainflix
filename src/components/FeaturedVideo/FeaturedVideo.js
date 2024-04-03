@@ -1,37 +1,38 @@
-import './FeaturedVideo.scss'
+import React from 'react';
+import './FeaturedVideo.scss';
 import videoData from '../../data/videos.json';
-import videoDetails from '../../data/video-details.json';
 
-
-const FeaturedVideo = () => {
-    console.log(videoData)
-
+const FeaturedVideo = ({featuredVideo}) => {
     return (
+        <section className="featuredVideo">
+            {/* {videoData.map((video) => ( */}
+                <div className="video-player__container" key={featuredVideo.id}>
+                    <video className="video-player" poster={featuredVideo.image[0]}>
+                        <source src={featuredVideo.image[0]} type="video/mp4" />
+                        
+                    </video>
 
-        // <section className="featuredVideo">
-        //     <div className="video-player__container">
-        //         <video className="video-player" autoPlay muted loop poster={videoPoster}>
-        //             {/* <source src={videoSource} type="video/mp4" /> */}
-        //             Your browser does not support the video tag.
-        //         </video>
-        //     </div>
-        //     <div className="video-player__content">
-        //         {/* Your content here */}
-        //     </div>
 
-            {/* <div class="video-controls">
-                <button class="play-pause-button"></button>
-                <div class="progress-bar">
-                    <div class="buffered"></div>
-                    <div class="played"></div>
-                    <div class="scrubber"></div>
+                    {/* <div className="video-controls">
+                        <button className="play-pause-button"></button>
+                        <div className="progress-bar">
+                            <div className="buffered"></div>
+                            <div className="played"></div>
+                            <div className="scrubber"></div>
+                        </div>
+                        <button className="volume-button"></button>
+                        <input type="range" className="volume-slider" min="0" max="1" step="0.01" />
+                        <button className="fullscreen-button"></button>
+                    </div> */}
+
+                    <div className="video-content">
+                        <h2>{featuredVideo.title}</h2>
+                        <p>{featuredVideo.channel}</p>
+                    </div>
                 </div>
-                <button class="volume-button"></button>
-                <input type="range" class="volume-slider" min="0" max="1" step="0.01">
-                <button class="fullscreen-button"></button>
-            </div> */}
-     // </section>
+            {/* ))} */}
+        </section>
     )
 }
 
-export default FeaturedVideo
+export default FeaturedVideo;
