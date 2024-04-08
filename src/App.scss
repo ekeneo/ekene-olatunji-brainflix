@@ -4,14 +4,50 @@
 @use "./styles/partials/mixins" as *;
 @use "./styles/partials/typography" as *;
 
-.Video-list__Container{
-    @include desktop{
+.Video-list{
+    border-left: 2px solid $brainflix-mercury;
+    // background-color: red;
+    width: 100%;
+    // width: 45vw;
+    // $__Container{
+    //     @include desktop{
 
+    //     }
+    // }
+    
+    &__heading{
+        margin-left: 2rem;
+        font-family: "avenir";
+        color: $brainflix-silver;
+        font-weight: 600;
+        font-size: medium;
+        padding-top: 1.3rem;
+
+        @include desktop{
+            padding-top: 1rem;
+        }
+    }
+    &__container{
+       
+        @include desktop{
+           margin-top: 2rem;
+            width: 50%;
+            padding-top: 0px;
+            
+        }
+       
     }
 }
-.Video-list__heading{
-    margin-left: 2rem;
-    font-family: "avenir";
-    color: $brainflix-silver;
-    font-weight: 600;
+
+.body-layout{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    // @include tablet{
+
+    // }
+    @include desktop{
+        flex-direction: row;
+        padding: 0rem 6rem;
+    }
 }

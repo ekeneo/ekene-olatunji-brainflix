@@ -4,37 +4,59 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
 
-// .video-list {
-//     @include desktop{
+.video-list {
+    @include desktop{
         
-//     }
-// }
-.video-list__video {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    gap: 1.5rem;
+    }
+
+   &__video {
+        // list-style: none;
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+        
+    }
     
-    
+    &__video-image {
+        width: 12rem;
+        height: 7rem;
+        border-radius: 8px;
+        margin: 1rem 0rem;
+        @include desktop{
+            width: 9rem;
+            height: 5.5rem;
+        }
+    }
+
+
+    &__video-info{
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__video-channel {
+        font-size: 18px;
+        padding-top: 1rem;
+        @include desktop{
+            font-size: 16px;
+            padding-top: 0.2rem;
+        }
+    }
+
+    &__video-title {
+        font-size: 20px;
+        font-weight: 600;
+        @include desktop{
+            font-size: 16px;
+            width: 15vw;
+        }
+    }
+
 }
 
-.video-list__video-image {
-    width: 12rem;
-    height: 7rem;
-    border-radius: 8px;
-    margin: 1rem 0rem;
-}
 
-.video-list__video-channel {
-    align-items: flex-end;
-    position: absolute;
-    font-size: 18px;
-    padding: 20px 220px;
-    padding-top: 90px;
-}
 
-.video-list__video-title {
-    font-size: 25px;
-    font-weight: 600;
-    
-}
+
+
+
+

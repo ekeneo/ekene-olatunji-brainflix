@@ -3,15 +3,16 @@ import './FeaturedVideo.scss';
 import videoData from '../../data/videos.json';
 
 const FeaturedVideo = ({featuredVideo}) => {
+    console.log(featuredVideo);
     return (
         <section className="featuredVideo">
-            {/* {videoData.map((video) => ( */}
-                <div className="video-player__container" key={featuredVideo.id}>
-                    <video className="video-player" poster={featuredVideo.image[0]}>
-                        <source src={featuredVideo.image[0]} type="video/mp4" />
-                        
-                    </video>
-
+            <div className="video-player__container" key={featuredVideo.id}>
+                <video
+                className='video-player'
+                controls
+                src={featuredVideo.video}
+                poster={featuredVideo.image}
+             ></video>
 
                     {/* <div className="video-controls">
                         <button className="play-pause-button"></button>
@@ -25,10 +26,10 @@ const FeaturedVideo = ({featuredVideo}) => {
                         <button className="fullscreen-button"></button>
                     </div> */}
 
-                    <div className="video-content">
+                    {/* <div className="video-content">
                         <h2>{featuredVideo.title}</h2>
                         <p>{featuredVideo.channel}</p>
-                    </div>
+                    </div> */}
                 </div>
             {/* ))} */}
         </section>

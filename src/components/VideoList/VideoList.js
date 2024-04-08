@@ -7,11 +7,14 @@ const VideoList = ({video, handleVideoClick }) => {
         <ul className='video-list'>
             {videoData.map((video) => {
                 return (
-                    <li onClick={() =>handleVideoClick(video.id)} key={video.id} className='video-list__video'>
-                      <img className='video-list__video-image' src={video.image}/>
-                      <p className='video-list__video-title'>{video.title}</p>
-                      <p className='video-list__video-channel'>{video.channel}</p>
-                    </li>
+                    <div onClick={() =>handleVideoClick(video.id)} key={video.id} className='video-list__video'>
+                        <img className='video-list__video-image' src={video.image}/>
+                        <div className='video-list__video-info'>
+                            <p className='video-list__video-title'>{video.title}</p>
+                            <p className='video-list__video-channel'>{video.channel}</p>
+                        </div>
+                    </div>
+
                 )
             })}
         </ul>
