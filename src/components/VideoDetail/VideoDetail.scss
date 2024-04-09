@@ -98,9 +98,12 @@
     }
 
     &__desc{
-        font-size: 20px;
+        font-size: 18px;
+        @include tablet{
+            font-size: 16px;
+        }
         @include  desktop{
-            font-size: 18px;
+            font-size: 16px;
             margin-right: 2rem;
         }
         

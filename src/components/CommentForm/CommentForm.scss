@@ -1,0 +1,226 @@
+// linking partials
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.comment-form {
+    // margin: 0rem 0rem;
+    margin-left: 2rem;
+    // margin-right: 0rem;
+    border-bottom: 2px solid $brainflix-mercury;
+    padding-bottom: 2rem;
+   
+    @include tablet{
+        margin-left: 2rem;
+        // width: 95vw;
+    }
+    @include desktop{
+        margin-left: 0rem;
+    }
+    &__comment-counter{
+        font-weight: 600;
+        font-size: 20px;
+        margin: 2rem 0rem;
+    }
+    &__container{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        
+        // @include tablet{
+        //     flex-direction: ;
+        // }
+    }
+
+    &__heading{
+    color: $brainflix-silver;
+    font-weight: 600;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+
+    @include tablet{
+        margin-bottom: 0px;
+    }
+    }
+
+    &__user-icon{
+        object-fit: cover;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        
+        
+        @include tablet{
+            width: 52px;
+            height: 52px;
+            margin-top: 2rem;
+            margin-right: 2rem;
+        }
+        
+    }
+   &__textarea {
+        width: 60vw;
+        height: 100px;
+        padding: 1rem;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        font-family: "avenir";
+        background-color: #FAFAFA;
+       
+        @include tablet{
+            height: 50px;
+            width: 50vw;
+            // width: fit-content;
+            // padding-right: 18rem;
+        }
+        @include desktop{
+            height: 50px;
+            width: 25vw;
+            // width: fit-content;
+            // padding-right: 9rem;
+        }
+
+
+        &::placeholder{
+            color: black;
+           
+        }
+    
+        /* Active state */
+        &:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+    
+        /* Filled-in state */
+        &:not(:placeholder-shown) {
+            border-color: #28a745;
+        }
+    
+        /* Error state */
+        &.error {
+            border-color: #dc3545;
+        }
+    }
+
+
+    &__button {
+        background-image: url('../../assets/Icons/add_comment.svg');
+        background-repeat: no-repeat;
+        background-color: #0095FF;
+        background-position: 10px 10px; 
+        color: #ffffff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: normal;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        height: 3rem; 
+        padding: 0 32px; 
+        width: 100%; 
+        &:hover {
+            background-color: #0065AD; 
+            color: #ffffff; 
+        }
+        @include tablet{
+        //   display: none;
+        padding: 0 52px; 
+        }
+    }
+
+    &__group{
+        @include tablet{
+        display: flex;
+        gap: 2rem;
+        // max-width:80%;
+    }
+    }
+
+}
+
+// .user-icon {
+//     border-radius: 50%;
+//     width: 50px;
+//     height: 50px;
+//     margin-right: 10px;
+//     margin-left: 2rem;
+//     margin-top: 2rem;
+//     position: absolute;
+//     object-fit: cover;
+// }
+// .comments-form {
+//     margin-bottom: 20px;
+//     margin-left: 6rem;
+//     margin-top: 20px;
+//     padding-bottom: 20px;
+// }
+// .comments-form input[type="text"]::placeholder,
+// .comments-form textarea::placeholder {
+//   color: black;
+// }
+// .comments-submit{
+//     display: flex;
+//     @include tablet{
+//         justify-content: end;
+//         margin-right: 30px;
+//     }
+//     @include desktop {
+//         justify-content: end;
+//         margin-right: 30px;
+//     }
+// }
+// .input-container {
+//     margin-bottom: 10px; 
+// }
+// .input-container label {
+//     display: block;
+//     font-weight: 600;
+//     color: $bandsite-silver;
+//   }
+  
+// [type="submit"] {
+//     // font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+//     width: 94%;
+//     background: $bandsite-black;
+//     border-radius:5px;
+//     border:0;
+//     cursor:pointer;
+//     color:white;
+//     font-size:20px;
+//     padding-top:10px;
+//     padding-bottom:10px;
+//     transition: all 0.3s;
+//     margin-top:-4px;
+//     font-weight:500;
+//     @include tablet{
+//         width: 30%;
+//     }
+//     @include desktop{
+//         width: 30%;
+//     }
+//   }
+//   [type="submit"]:hover { background: black; }
+
+
+
+// .input-container input[type="text"],
+// .input-container textarea {
+//   width: calc(100% - 34px);
+//   padding: 10px;
+//   border-radius: 5px;
+//   border: 2px solid $bandsite-mercury;
+//   box-sizing: border-box;
+//   margin-bottom: 10px;
+//   font-family: "avenir";
+//   font-size: 18px;
+//   background-color: $bandsite-alabaster;
+// }
+
+// .input-container textarea{
+//     height: 150px;
+// }

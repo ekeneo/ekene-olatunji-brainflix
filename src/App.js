@@ -17,8 +17,14 @@ function App() {
   const [videoDetail, setVideoDetail] = useState(videoDetails[0])
   const [commentData, setCommentData] = useState(videoDetails[0])
 
+   // Function to add a new comment
+   const addComment = (newComment) => {
+    setCommentData([...commentData, newComment]);
+  };
+
   // add axios code here to get data from api
   // useeffect .axios code to add API
+  
 
   const handleVideoClick = (videoId) => {
     setFeaturedVideo(videoDetails.find(video => video.id === videoId))
@@ -48,7 +54,7 @@ function App() {
         {/* (video data, Form, Comment), (video list) */}
         <div>
           <VideoDetail videoDetail={videoDetail} />
-          <CommentForm/>
+          <CommentForm addComment={addComment} commentData={commentData} />
           <CommentData commentData={commentData} />
         </div>
         <div className='Video-list'>
