@@ -1,4 +1,5 @@
 import { useState } from 'react'; 
+import {Link} from "react-router-dom";
 import logoImg from '../../assets/Logo/BrainFlix-logo.svg';
 import searchLogo from '../../assets/Icons/search.svg';
 import userIcon from '../../assets/Images/Mohan-muruge.jpg';
@@ -10,7 +11,9 @@ const Navigation = () => {
 
   return (
     <nav className='nav'>
-      <img className='nav__logo' src={logoImg} alt="BrainFlix-logo" />
+      <Link to="/">
+        <img className='nav__logo' src={logoImg} alt="BrainFlix-logo" />
+      </Link>
       <div className='nav__search-container'>
         {/* search start */}
         <input className="nav__search" 
@@ -28,7 +31,9 @@ const Navigation = () => {
           className="nav__user-icon"
         />
       </div>
-      <button className='nav__upload1'>UPLOAD</button>
+      <Link to="/upload">
+        <button className='nav__upload1'>UPLOAD</button>
+      </Link>
     </nav>
   );
 };

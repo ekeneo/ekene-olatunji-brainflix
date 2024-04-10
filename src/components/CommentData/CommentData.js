@@ -10,10 +10,14 @@ const CommentData = ({ commentData }) => {
     const year = date.getFullYear();
     return `${month}/${day}/${year}`;
   }
+  // Check if commentData.comments is undefined
+  if (!commentData || !commentData.comments) {
+    return null; // or return a message indicating no comments
+  }
 
   return (
     <section className="comment-container">
-      {commentData.comments.map((comment, index) => {
+      {commentData.comments.map((comment) => {
         return (
           <article className="comments-list" key={comment.id}>
             <div className="comments-list__icon"></div>
@@ -22,7 +26,6 @@ const CommentData = ({ commentData }) => {
                 <p className="comments-list__name">{comment.name}</p>
                 <date className="comments-list__date">
                   {formatDate(comment.timestamp)}
-                  {/* {comment.timestamp} */}
                 </date>
               </div>
               <div className="comments-list__comments">{comment.comment}</div>

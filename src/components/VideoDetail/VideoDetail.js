@@ -7,7 +7,10 @@ import videoDetails from '../../data/video-details.json';
 
 
 const VideoDetail = ({videoDetail}) => {
-    // console.log({videoDetail});
+    if (!videoDetail) {
+        return <div>Loading...</div>; // or handle the case where videoDetail is undefined
+    }
+
     function formatDate(timestamp) {
         const date = new Date(timestamp);
         const month = (date.getMonth() + 1).toString().padStart(2, '0'); 
