@@ -14,17 +14,15 @@ import VideoList from '../../components/VideoList/VideoList';
 export const apiKey = "?api_key=2f765481-9177-46db-a027-8f307536d552";
 export const apiUrl = "https://unit-3-project-api-0a5620414506.herokuapp.com";
 
-//  create a state variable for list of videos
-//  Make a request to /videos API endpoint
-//  Update state
-//  Render a list of video links to /video/:id
-
 function HomePage() {
   const [video, setVideo] = useState('')
   const [videoListArr, setVideoListArr] = useState([]);
   const [featuredVideo, setFeaturedVideo] = useState('')
   const [videoDetail, setVideoDetail] = useState('')
-  const [commentData, setCommentData] = useState('')
+  const [commentData, setCommentData] = useState(null)
+
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
    // Function to add a new comment
    const addComment = (newComment) => {
@@ -40,10 +38,13 @@ function HomePage() {
         setVideo(response.data);
         setFeaturedVideo(response.data[0]);
         setVideoListArr(response.data);
-        setVideoDetail(response.data[0]); // Set videoDetail with the first video from the response
-        setCommentData(response.data[0].comments); // Assuming comments are within the first video object
+        setVideoDetail(response.data[0]); 
+        setCommentData(response.data[0].comments); 
+        setLoading(false);
       })
       .catch((error) => {
+        setError('Error fetching videos. Please try again later.');
+        setLoading(false);
         console.log("Error fetching videos: ", error);
       });
   }, []);
@@ -92,25 +93,6 @@ function HomePage() {
     const filteredVideo = videoListArr.filter((video) => video.id !== videoId);
     setVideo(filteredVideo);
   }
-  
-
-  // const handleVideoClick = (videoId) => {
-  //   setFeaturedVideo(video.find(video => video.id === videoId))
-  //   setVideoDetail(video.find(video => video.id === videoId))
-  //   setCommentData(video.find(video => video.id === videoId))
-  //   const filteredVideo = video.filter((video) => video.id !== videoId)
-  //   setVideo(filteredVideo)
-  // }
-
-  // === needed for uploading new video
-  // const addVideo = () => {
-  //   const newVideo = {
-  //     'id': "84e96018-4022-434e-80bf-000ce4cd12b8",
-  //     'image': "https://unit-3-project-api-0a5620414506.herokuapp.com/images/image0.jpg"
-  //   }
-  
-  //   setVideo([ ...video, newVideo ])
-  // }
 
   return (
     <div className="App">
@@ -120,14 +102,22 @@ function HomePage() {
       <FeaturedVideo featuredVideo={featuredVideo} />
       <main className='body-layout'>
         <div>
-          <VideoDetail videoDetail={videoDetail} />
+          {/* <VideoDetail videoDetail={videoDetail} />
           <CommentForm addComment={addComment} commentData={commentData} />
-          <CommentData commentData={commentData} />
+          <CommentData commentData={commentData} /> */}
+           <VideoDetail videoDetail={videoDetail} />
+          {loading ? <div>Loading...</div> : error ? <div>{error}</div> : (
+            <>
+              <CommentForm addComment={addComment} commentData={commentData} />
+              <CommentData videoListArr={video} commentData={commentData} />
+              {/* <CommentData commentData={commentData} /> */}
+            </>
+          )}
         </div>
         <div className='Video-list'>
           <aside className='Video-list__container'>
             <h2 className='Video-list__heading'>NEXT VIDEOS</h2>
-            <VideoList videosda={video} handleVideoClick={handleVideoClick} />
+            <VideoList videoListArr={video} handleVideoClick={handleVideoClick} />
           </aside> 
         </div>
       </main>

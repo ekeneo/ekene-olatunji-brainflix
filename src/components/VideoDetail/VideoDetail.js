@@ -2,13 +2,11 @@ import './VideoDetail.scss';
 import React from 'react';
 import iconViews from '../../assets/Icons/views.svg';
 import iconLikes from '../../assets/Icons/likes.svg';
-import videoData from '../../data/videos.json';
-import videoDetails from '../../data/video-details.json';
 
 
 const VideoDetail = ({videoDetail}) => {
     if (!videoDetail) {
-        return <div>Loading...</div>; // or handle the case where videoDetail is undefined
+        return <div>Loading...</div>; 
     }
 
     function formatDate(timestamp) {
